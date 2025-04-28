@@ -22,5 +22,8 @@ Route::get('/movies', [MovieController::class, 'index']);
 Route::get('/auth/google', [AuthController::class, 'redirectToGoogle']);
 Route::get('/auth/google/callback', [AuthController::class, 'handleGoogleCallback']);
 
-
+Route::get('/run-migrate', function () {
+    Artisan::call('migrate');
+    return 'Migration completed!';
+});
 
